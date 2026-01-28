@@ -429,8 +429,8 @@ body{
 }
 
 .section-title h2{
-	font-size: 48px;
-	font-weight: 300;
+	font-size: 40px;
+	font-weight: 500;
 	margin-bottom: 0;
 	cursor: none;
 }
@@ -773,7 +773,7 @@ header.main-header .header-sticky.active{
     background: url('../images/hero-bg-shape.png') no-repeat;
     background-position: top center;
     background-size: auto;
-	padding: 340px 0 80px;
+	padding: 300px 0 80px;
 	z-index: 1;
 }
 
@@ -1812,10 +1812,10 @@ header.main-header .header-sticky.active{
 .testimonial-header{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     border-bottom: 1px solid var(--divider-color);
-    margin-bottom: 30px;
-    padding-bottom: 30px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
     gap: 10px;
 }
 
@@ -1826,18 +1826,24 @@ header.main-header .header-sticky.active{
 
 .author-image{
     display: inline-block;
-    margin-right: 15px;
+    /* margin-right: 15px; */
 }
 
 .author-image figure{
-    border-radius: 50%;
-    display: block;
+    width: 200px;
+    background-color: #020c0810;
+    border:solid 1px #020c0820;
+    border-radius: 10%;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .author-image img{
     width: 100%;
-    max-width: 50px;
-    border-radius: 50%;
+    max-width: 100px;
+    border-radius: 0;
 }
 
 .author-content h3{
@@ -1860,7 +1866,8 @@ header.main-header .header-sticky.active{
 
 .testimonial-content p{
     color: var(--primary-color);
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 1.8;
     font-weight: 500;
     margin: 0;
 }
@@ -3052,6 +3059,40 @@ header.main-header .header-sticky.active{
 .page-pagination ul li a:hover{
     background: var(--accent-color);
 }
+
+/***  ***/
+.values-section {
+    background: #020c08;
+    padding: 40px 20px;
+}
+
+.value-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    color: #fff;
+    flex-direction: column;
+}
+
+.value-item .icon {
+    font-size: 48px;
+    color: #e5e5e5;
+    min-width: 40px;
+}
+
+.value-item h4 {
+    font-size: 24px;
+    font-weight: 600;
+    /* margin-bottom: 6px; */
+}
+
+.value-item p {
+    font-size: 14px;
+    color: #bfbfbf;
+    line-height: 1.6;
+    margin: 0;
+}
+
 
 /************************************/
 /***     21. Blog Single css      ***/
