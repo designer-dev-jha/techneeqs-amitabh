@@ -908,17 +908,61 @@
                             <!-- Section Title Start -->
                             <div class="section-title">
                                 <h3 class="wow fadeInUp">our facts</h3>
-                                <h2 class="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Ready to build smarter, faster, & more intelligently <span>with AI?</span></h2>
-                                <p class="wow fadeInUp" data-wow-delay="0.4s">Ready to innovate with AI model? Whether you have an idea, a challenge, or a full roadmap we'd love to help bring it to life.</p>
+                                <h2 class="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Ready to build smarter, faster, & more <br> intelligently <span>with AI?</span></h2>
                             </div>
                             <!-- Section Title End -->
+                             <div class="services-carousel">
 
-                            <!-- CTA Box Body Start -->
-                            <div class="cta-box-body wow fadeInUp" data-wow-delay="0.6s">
-                                <a href="contact.html" class="btn-default btn-highlighted">Get Started Today</a>
-                                <a href="contact.html" class="btn-default">Send a Message</a>
+                                <!-- Left Arrow -->
+                                <button class="nav-btn left" onclick="slide(-1)">‹</button>
+
+                                <div class="carousel-track">
+
+                                    <!-- CARD -->
+                                    <div class="service-card">
+                                        <img src="images/case01.png" />
+                                        <div class="overlay-title">Artificial Intelligence</div>
+                                        <div class="content">
+                                            <h3>Artificial Intelligence</h3>
+                                            <p>We build AI-powered systems that improve decision-making and automation.</p>
+                                            <a href="#">Learn more →</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="service-card">
+                                        <img src="images/case01.png" />
+                                        <div class="overlay-title">IoT Embedded</div>
+                                        <div class="content">
+                                            <h3>IoT Embedded Development</h3>
+                                            <p>AR tech to cutting-edge advancements, we blend expertise with a client-first approach to create impactful, immersive experiences.</p>
+                                            <a href="#">Learn more →</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="service-card">
+                                        <img src="images/case01.png" />
+                                        <div class="overlay-title">Web Development</div>
+                                        <div class="content">
+                                            <h3>Web Application Development</h3>
+                                            <p class="align-items-start">Scalable and secure web platforms built for growth.</p>
+                                            <a href="#">Learn more →</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- ADD UP TO 12 CARDS SAME STRUCTURE -->
+
+                                </div>
+
+                                <!-- Right Arrow -->
+                                <button class="nav-btn right" onclick="slide(1)">›</button>
+
                             </div>
-                            <!-- CTA Box Body End -->
+
+                            <!-- CTA Box Body Start --> 
+                             <div class="cta-box-body wow fadeInUp mt-5" data-wow-delay="0.6s"> 
+                                <a href="contact.html" class="btn-default btn-highlighted">View More</a> 
+                            </div> <!-- CTA Box Body End -->
+
                         </div>
                         <!-- CTA Box Content End -->
                     </div>
@@ -1372,5 +1416,29 @@
     <script src="js/wow.min.js"></script>
     <!-- Main Custom js file -->
     <script src="js/function.js"></script>
+
+    <script>
+let index = 1;
+const cards = document.querySelectorAll('.service-card');
+
+function updateActive() {
+    cards.forEach(c => c.classList.remove('active'));
+    cards[index].classList.add('active');
+
+    // const offset = -(index - 1) * 310;
+    // document.querySelector('.carousel-track').style.transform =
+    //     `translateX(${offset}px)`;
+}
+
+function slide(dir) {
+    index += dir;
+    if (index < 0) index = cards.length - 1;
+    if (index >= cards.length) index = 0;
+    updateActive();
+}
+
+updateActive();
+</script>
+
 </body>
 </html>
