@@ -103,7 +103,7 @@ h5,
 h6{
 	margin :0;
 	font-weight: 700;
-	line-height: 1.2em;
+	line-height: 1.3em;
 	color: var(--primary-color);
 }
 
@@ -2005,6 +2005,82 @@ header.main-header .header-sticky.active{
     font-weight: 700;
     text-decoration: none;
 }
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .service-card {
+        width: 180px;
+        height: 220px;
+    }
+
+    .service-card.active {
+        width: 420px;
+        height: 300px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .services-carousel {
+        margin-top: 40px;
+    }
+
+    .carousel-track {
+        gap: 12px;
+    }
+
+    /* Hide side cards visually */
+    .service-card {
+        width: 0;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* Show only active card */
+    .service-card.active {
+        width: 100%;
+        height: auto;
+        opacity: 1;
+        pointer-events: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .service-card.active img {
+        width: 100%;
+        height: 200px;
+        float: none;
+        padding: 0;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .service-card.active .content {
+        padding: 20px;
+    }
+
+    .service-card.active h3 {
+        font-size: 18px;
+    }
+
+    .service-card.active p {
+        font-size: 14px;
+    }
+
+    /* Overlay title hidden on mobile */
+    .overlay-title {
+        display: none;
+    }
+
+    /* Nav buttons smaller */
+    .nav-btn {
+        width: 36px !important;
+        height: 36px !important;
+        margin: 0 10px !important;
+        font-size: 20px;
+    }
+}
+
 
 /* NAV BUTTONS */
 .nav-btn {
@@ -5283,7 +5359,7 @@ header.main-header .header-sticky.active{
     }
 
 	.cta-box-box{
-        padding: 50px 15px;
+        padding: 50px 5px;
     }
 
 	.what-we-box{
