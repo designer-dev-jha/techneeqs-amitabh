@@ -1885,7 +1885,7 @@ header.main-header .header-sticky.active{
     width: 10px;
     background: var(--primary-color);
 	opacity: 1;
-    margin: 0 10px;
+    margin: 5px 10px;
 	transition: all 0.3s ease-in-out;
 }
 
@@ -3254,7 +3254,7 @@ header.main-header .header-sticky.active{
 .value-item {
     display: flex;
     gap: 16px;
-    align-items: flex-start;
+    align-items: center;
     color: #fff;
     flex-direction: column;
 }
@@ -3275,6 +3275,8 @@ header.main-header .header-sticky.active{
     font-size: 14px;
     color: #bfbfbf;
     line-height: 1.6;
+    display: flex;
+    align-items: center;
     margin: 0;
 }
 
