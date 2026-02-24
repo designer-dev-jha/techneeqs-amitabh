@@ -1450,14 +1450,25 @@ header.main-header .header-sticky.active{
 	transform: rotate(45deg);
 }
 
-.project-content{
-	position: absolute;
-	right: 30px;
-	bottom: 30px;
-	left: 30px;
-	z-index: 2;
+.project-content {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    z-index: 2;
+    height: 70px;
+    transition: .5s ease;
+    padding: 10px 0;
+    overflow: hidden;
 }
-
+.hoverContent .project-content p{
+    height: 0;
+    display: none;
+    font-size: 13.5px;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
 .project-content h3{
     font-size: 20px;
 	text-transform: capitalize;
@@ -1467,7 +1478,14 @@ header.main-header .header-sticky.active{
 .project-content h3 a{
     color: inherit;
 }
-
+.hoverContent:hover .project-content{
+    height: 250px;
+    
+}
+.hoverContent:hover .project-content p{
+    height: auto;
+    display: block;
+}
 .project-content p{
     padding-left: 25px;
     background: url('../images/icon-sparkle.svg') no-repeat;
@@ -2856,8 +2874,8 @@ header.main-header .header-sticky.active{
 .page-catagery-list ul li{
     border-bottom: 1px solid var(--divider-color);
     line-height: 1.5em;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
     transition: all 0.3s ease-in-out;
 }
 
@@ -4268,7 +4286,37 @@ header.main-header .header-sticky.active{
 .error-page-content .section-title{
 	margin-bottom: 15px;
 }
-
+.footerslide {
+    line-height: 1.5;
+}
+.socialmedia {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+.socialmedia li {
+    display: inline-block;
+    margin-right: 4px;
+}
+.socialmedia li a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 39px;
+    text-align: center;
+    border-radius: 50%;
+}
+.socialmedia .socailfb{
+    background:#3b5998;
+    color:#fff;
+}
+.socialmedia .socaillinkedin{
+    background:#007ab9;
+    color:#fff;
+}
+.half2service ul li{
+    width: calc(50% - 20px);
+}
 /************************************/
 /***      32. Responsive css      ***/
 /************************************/
