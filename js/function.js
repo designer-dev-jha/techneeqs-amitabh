@@ -286,6 +286,14 @@
 			});
 		}
 	}
-	/* Page Testimonials Item Active End */
+	var swiper = new Swiper(".footerslide", {
+			loop: true,
+			autoplay: {
+				delay: 4000,
+				disableOnInteraction: false,
+			},
+			pagination: false,   // dots OFF
+			navigation: false,   // arrows OFF
+		});
 	
 })(jQuery);
