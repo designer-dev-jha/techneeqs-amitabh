@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------------------
 * Author        : Awaiken
-* Template Name : Techneeqs - AI Agency & Technology 
+* Template Name : Nextmind - AI Agency & Technology HTML Template
 * File          : CSS File
 * Version       : 1.0
 * ---------------------------------------------------------------------------------------- */
@@ -3162,45 +3162,22 @@ header.main-header .header-sticky.active{
     margin-bottom: 15px;
 }
 
-.service-impact-item2 {
-    width: calc(50% - 20px);
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
 }
 
-.service-impact-item2 .icon-box{
-    position: relative;
-    background: var(--accent-color);
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 40px;
+/* Hide extra cards */
+.hidden-card {
+    display: none;
 }
 
-.service-impact-item2 .icon-box::before{
-	content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(120deg, var(--accent-color) 0, var(--accent-secondary-color) 100%) no-repeat;
-    border-radius: 50%;
-    height: 100%;
-    width: 100%;
-    transform: scale(0);
-    transition: all 0.4s ease-in-out;
-}
-
-.service-impact-item2:hover .icon-box::before{
-	transform: scale(1);
-}
-
-.service-impact-item2 .icon-box img{
-    position: relative;
-    max-width: 40px;
-    z-index: 1;
+/* Responsive */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .service-innovation-list{
