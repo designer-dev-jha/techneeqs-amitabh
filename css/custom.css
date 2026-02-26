@@ -3162,8 +3162,6 @@ header.main-header .header-sticky.active{
     margin-bottom: 15px;
 }
 
-
-
 .service-impact-item2 {
     width: calc(50% - 20px);
 }
@@ -3203,11 +3201,6 @@ header.main-header .header-sticky.active{
     position: relative;
     max-width: 40px;
     z-index: 1;
-}
-
-.service-impact-item-content h3{
-    font-size: 20px;
-    margin-bottom: 15px;
 }
 
 .service-innovation-list{
@@ -4364,6 +4357,49 @@ header.main-header .header-sticky.active{
 }
 .half2service ul li{
     width: calc(50% - 20px);
+}
+.halfservicebox .service-impact-item{
+    width: calc(50% - 20px);
+}
+.boxInfo{
+    border: 1px solid var(--divider-color);
+    background: var(--secondary-color) url(../images/service-impact-list-bg.svg) no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 20px;
+    margin-top: 40px;
+    padding: 40px;
+}
+.boxBtn {
+    padding: 6px;
+    border: 2px solid #6d3c4c;
+    border-radius: 40px;
+    background-color: #1a2d23;
+    position: relative;
+    z-index: 1;
+}
+.boxbtnapp.boxBtn {
+    background-color: #262626c2;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+.boxbtnapp a {
+    min-width: 100px;
+    padding: 12px 30px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+}
+.btnbanner {
+        background: linear-gradient(to right, var(--accent-color) 0%, var(--accent-secondary-color) 50%, var(--accent-color) 100%);
+    background-size: 200% auto;
+    color: #fff;
+    padding: 15px 24px;
+    border-radius: 30px;
+    font-size: 16px;
+}
+.fs-14{
+    font-size: 14px;
 }
 /************************************/
 /***      32. Responsive css      ***/
