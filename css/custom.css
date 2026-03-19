@@ -1732,7 +1732,7 @@ header.main-header .header-sticky.active{
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 16px;
 }
 
 .what-we-do-body ul li{
@@ -1741,17 +1741,17 @@ header.main-header .header-sticky.active{
     border: 1px solid var(--divider-color);
     background: var(--secondary-color);
     border-radius: 100px;
-    padding: 10px 15px 10px 45px;
+    padding: 8px 10px 8px 32px;
 }
 
 .what-we-do-body ul li::before{
     content: '\f058';
     position: absolute;
     font-family: 'Font Awesome 6 Free';
-    top: 12px;
-    left: 15px;
+    top: 10px;
+    left: 10px;
     font-weight: 900;
-    font-size: 18px;
+    font-size: 14px;
     color: var(--accent-color);
 }
 
@@ -4796,15 +4796,15 @@ header.main-header .header-sticky.active{
     }
 
     .what-we-do-body ul{
-        gap: 20px;
+        gap: 15px;
     }
 
     .what-we-do-body ul li{
-        padding: 8px 15px 8px 40px;
+        padding: 6px 10px 6px 30px;
     }
 
     .what-we-do-body ul li::before{
-        font-size: 16px;
+        font-size: 14px;
     }
 
 	.our-testimonials{
