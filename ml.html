@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="css/mousecursor.css">
     <!-- Main Custom Css -->
     <link href="css/custom.css" rel="stylesheet" media="screen">
+	<!-- Footer Css -->
+	<link href="css/footer.css" rel="stylesheet">
 </head>
 
 <body>
@@ -78,7 +80,7 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
-                                <li class="nav-item"><a class="nav-link" href="case-studies.html">Industries</a></li>
+                                <li class="nav-item"><a class="nav-link" href="industies.html">Industries</a></li>
                                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>                   
                             </ul>
                         </div>
@@ -171,7 +173,7 @@
                         <!-- Page Single Image Start -->
                         <div class="page-single-image">
                             <figure class="image-anime reveal">
-                                <img src="images/banner_ai.png" alt="">
+                                <img src="images/ML.jpg" alt="">
                             </figure>
                         </div>
                         <!-- Page Single Image End -->
@@ -414,89 +416,78 @@
     <!-- Footer Start -->
     <footer class="main-footer">
         <div class="container">
-            <div class="row section-row align-items-center">
-                <div class="col-lg-7">
-                    <!-- Section Title Start -->
-                    <div class="section-title">
-                        <h2 class="wow fadeInUp" data-cursor="-opaque">Let's start work <span>together!</span></h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.2s">Partner with us to create intelligent, impactful,
-                            and future-ready AI solutions together.</p>
+            <canvas id="globeCanvas" class="tn-canvas"></canvas>
+
+            <div class="tn-inner">
+            <div class="tn-hero">
+                <div>
+                    <h2>Let's start work <span class="tn-gradient">together!</span></h2>
+                    <p>Partner with us to create intelligent, impactful, and future-ready AI solutions together.</p>
+                </div>
+                <a href="contact.html" class="tn-btn">Let's Work Together</a>
+            </div>
+
+            <div class="tn-grid">
+                <!-- Brand + Social -->
+                <div>
+                    <div class="tn-brand-name">
+                        <img src="/images/logo.png" alt="TechNeeqs Logo" class="brand-logo">
                     </div>
-                    <!-- Section Title End -->
+                    <p class="tn-brand-desc">Any one can write code that a computer can understand. Good programmers write code that humans can understand.</p>
+                    <p class="tn-col-title">Follow Us</p>
+                    <div class="tn-socials">
+                        <a href="#" class="tn-icon si-fb" title="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="#" class="tn-icon si-li" title="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="#" class="tn-icon si-tw" title="X (Twitter)"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                        <a href="#" class="tn-icon si-ig" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                    </div>
                 </div>
 
-                <div class="col-lg-5">
-                    <!-- Section Button Start -->
-                    <div class="section-btn wow fadeInUp" data-wow-delay="0.4s">
-                        <a href="contact.html" class="btn-default">Let's Work Together</a>
+                <!-- Contact & Location -->
+                <div>
+                    <p class="tn-col-title" style="font-size:0.85rem;color:rgba(255,255,255,0.45);">Contact Information</p>
+                    <div class="tn-contact">
+                        <div class="tn-contact-row"><span style="color:#4ade80;font-size:13px;margin-top:2px;">&#9742;</span><a href="tel:15163403230">+1 516 340 3230</a></div>
+                        <div class="tn-contact-row"><span style="color:#4ade80;font-size:13px;margin-top:2px;">&#9993;</span><a href="mailto:info@techneeqs.com">info@techneeqs.com</a></div>
+                        <div class="tn-divider"></div>
+                        <div class="tn-contact-row"><span style="color:#3b82f6;font-size:13px;margin-top:3px;">&#128205;</span><p>TechNeeqs LLC, 539 W. Commerce St #279, <br> Dallas, TX 75208</p></div>
+                        <div class="tn-contact-row"><span style="color:#3b82f6;font-size:13px;margin-top:3px;">&#128205;</span><p>H.No.202 2nd Floor RK Building, Hi-Tech City Hyderabad, India 500081</p></div>
                     </div>
-                    <!-- Section Button End -->
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <p class="tn-col-title" style="font-size:0.85rem;color:rgba(255,255,255,0.45);">Quick Links</p>
+                    <ul class="tn-links">
+                        <li><a href="index.html">&#8250; Home</a></li>
+                        <li><a href="case-studies.html">&#8250; Case Studies</a></li>
+                        <li><a href="industies.html">&#8250; Industries</a></li>
+                        <li><a href="contact.html">&#8250; Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <p class="tn-col-title" style="font-size:0.85rem;color:rgba(255,255,255,0.45);">Services</p>
+                    <ul class="tn-links">
+                        <li><a href="web-devlopment.html">&#8250; Web Development</a></li>
+                        <li><a href="mobile-application-ios.html">&#8250; iOS Development</a></li>
+                        <li><a href="mobile-application.html">&#8250; Android Development</a></li>
+                        <li><a href="ai.html">&#8250; Artificial Intelligence</a></li>
+                        <li><a href="ml.html">&#8250; Machine Learning</a></li>
+                        <li><a href="iot.html">&#8250; Internet of Things</a></li>
+                        <li><a href="3d.html">&#8250; 3D Development</a></li>
+                        <li><a href="ar.html">&#8250; Augmented Reality</a></li>
+                        <li><a href="vr.html">&#8250; Virtual Reality</a></li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-3 col-md-4">
-                    <!-- About Footer Start -->
-                    <div class="about-footer">
-                        <!-- Footer Logo Start -->
-                        <div class="footer-logo">
-                            <img src="images/logo.png" alt="">
-                        </div>
-                        <div class="swiper footerslide mt-4">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">You might not think that programmers are artists, but
-                                    programming is an extremely creative profession. It's logic-based creativity.</div>
-                                <div class="swiper-slide">Coding like poetry should be short and concise.</div>
-                                <div class="swiper-slide">Any one can write code that a computer can understand. Good
-                                    programmers write
-                                    code that humans can understand.</div>
-                            </div>
-                        </div>
-                        <!-- Footer Logo End -->
-                    </div>
-                    <!-- About Footer End -->
-                </div>
-
-                <div class="col-lg-6 col-md-8">
-                    <div class="footer-contact-box">
-                        <!-- Footer Links Start -->
-                        <div class="footer-links">
-                            <h3>Get In Touch</h3>
-                            <p><a href="tel:152885253">+1 5163403230</a></p>
-                            <p><a href="mailto:info@domainname.com">info@domainname.com</a></p>
-                        </div>
-                        <!-- Footer Links End -->
-
-                        <!-- Footer Links Start -->
-                        <div class="footer-links">
-                            <h3>Our Location</h3>
-                            <p>H.No.202 2nd Floor RK Building, Hi-Tech City Hyderabad Telangana India 500081</p>
-                        </div>
-
-                        <!-- Footer Links End -->
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-12">
-                    <div class="footer-contact-box">
-                        <div class="footer-links">
-                            <h3>Social Link</h3>
-                            <ul class="socialmedia">
-                                <li><a href="#" class="socailfb"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                <li><a href="#" class="socaillinkedin"><i class="fa-brands fa-linkedin-in"></i></a></li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <!-- Footer Copyright Text Start -->
-                    <div class="footer-copyright-text">
-                        <p>Copyright © 2026 All Rights Reserved.</p>
-                    </div>
-                    <!-- Footer Copyright Text End -->
-                </div>
+            <div class="tn-bar">
+                <p style="color:rgba(255,255,255,0.35);font-size:0.8rem;">Copyright &copy; 2026 TechNeeqs. All Rights Reserved.</p>
+                <p style="color:rgba(255,255,255,0.25);font-size:0.75rem;">Built with passion for technology &amp; innovation.</p>
             </div>
-        </div>
+        <div class="container">
     </footer>
     <!-- Footer End -->
 
