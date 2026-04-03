@@ -36,6 +36,160 @@
 	<link href="css/custom.css" rel="stylesheet" media="screen">
 	<!-- Footer Css -->
 	<link href="css/footer.css" rel="stylesheet">
+
+    <style>
+        .services-carousel {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            /* padding: 20px 0; */
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 16px;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            align-items: center;
+        }
+
+        .service-card {
+            position: relative;
+            min-width: 220px;
+            height: 280px;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            flex-shrink: 0;
+            background: #0d1b2a;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+            filter: brightness(0.55);
+        }
+
+        /* Overlay title shown on NON-hovered cards (like image-2) */
+        .overlay-title {
+            position: absolute;
+            bottom: 20px;
+            left: 16px;
+            right: 16px;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.35;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        /* Content shown on hover (like image-1) */
+        .card-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px 20px 20px;
+            background: linear-gradient(to top, rgba(10,20,35,0.97) 0%, rgba(10,20,35,0.6) 55%, rgba(0,0,0,0) 100%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            z-index: 3;
+        }
+
+        .card-content h3 {
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            line-height: 1.3;
+        }
+
+        .card-content p {
+            color: rgba(255,255,255,0.75);
+            font-size: 13px;
+            line-height: 1.55;
+            margin: 0 0 14px 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-content a {
+            color: #4d9fff;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.2px;
+        }
+
+        .card-content a:hover {
+            color: #80bfff;
+            text-decoration: underline;
+        }
+
+        /* HOVER STATE — card expands, shows content */
+        .service-card:hover {
+            min-width: 340px;
+            height: 310px;
+            z-index: 10;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.55);
+        }
+
+        .service-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .service-card:hover .overlay-title {
+            opacity: 0;
+        }
+
+        .service-card:hover .card-content {
+            opacity: 1;
+        }
+
+        /* Nav buttons */
+        .nav-btn {
+            position: relative;
+            z-index: 20;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(6px);
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.18);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .nav-btn.left { margin-right: 4px; }
+        .nav-btn.right { margin-left: 4px; }
+
+        /* Auto-scroll animation pause on hover */
+        .services-carousel:hover .carousel-track {
+            animation-play-state: paused;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -849,53 +1003,200 @@
                             <!-- Section Title End -->
                             <div class="services-carousel">
 
-                                <!-- Left Arrow -->
-                                <button class="nav-btn left" onclick="slide(-1)">‹</button>
+    <!-- Left Arrow -->
+    <button class="nav-btn left" id="prevBtn">‹</button>
 
-                                <div class="carousel-track">
+    <div class="carousel-track" id="carouselTrack">
 
-                                    <!-- CARD -->
-                                    <div class="service-card">
-                                        <img src="images/case01.png" />
-                                        <div class="overlay-title">Healthcare Intelligence Platform</div>
-                                        <div class="content">
-                                            <h3>Healthcare Data Platform Powered by AI</h3>
-                                            <p>How Techneeqs built a unified, AI-driven hospital operations platform that automated patient workflows, resource planning,</p>
-                                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#exampleModal">Learn more →</a>
-                                        </div>
-                                    </div>
+        <div class="service-card">
+            <img src="images/case-studies/medical.png" alt="Healthcare" />
+            <div class="overlay-title">Healthcare Intelligence Platform</div>
+            <div class="card-content">
+                <h3>Healthcare Data Platform Powered by AI</h3>
+                <p>How Techneeqs built a unified, AI-driven hospital operations platform that automated patient workflows, resource planning, and clinical administration.</p>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#exampleModal">Learn more →</a>
+            </div>
+        </div>
 
-                                    <div class="service-card">
-                                        <img src="images/case01.png" />
-                                        <div class="overlay-title">AI-Driven Data Intelligence Platform</div>
-                                        <div class="content">
-                                            <h3>AI-Driven Data Intelligence Platform</h3>
-                                            <p>A mid-sized enterprise operating across multiple business units struggled with fragmented data sources,</p>
-                                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#aiModal">Learn more →</a>
-                                        </div>
-                                    </div>
+<div class="service-card">
+    <img src="images/case-studies/ai-driven.png" alt="AI Platform" />
+    <div class="overlay-title">AI-Driven Data Intelligence Platform</div>
+    <div class="card-content">
+        <h3>AI-Driven Data Intelligence Platform</h3>
+        <p>A mid-sized enterprise operating across multiple business units struggled with fragmented data sources, resolved with unified AI analytics.</p>
+        <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#aiModal">Learn more →</a>
+    </div>
+</div>
 
-                                    <div class="service-card">
-                                        <img src="images/case01.png" />
-                                        <div class="overlay-title">Software Bundle <br> Installer Platform</div>
-                                        <div class="content">
-                                            <h3>Centralized Web Application Platform</h3>
-                                            <p class="align-items-start">The project involved designing and developing a centralized application platform</p>
-                                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#webModal">Learn more →</a>
-                                        </div>
-                                    </div>
+<div class="service-card">
+    <img src="images/case-studies/web-app.jpg" alt="Web Platform" />
+    <div class="overlay-title">Centralized Web Application Platform</div>
+    <div class="card-content">
+        <h3>Centralized Web Application Platform</h3>
+        <p>A scalable platform designed to create, manage, and distribute bundled software installers with centralized control and efficiency.</p>
+        <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#webModal">Learn more →</a>
+    </div>
+</div>
 
-                                    <!-- ADD UP TO 12 CARDS SAME STRUCTURE -->
+        <div class="service-card">
+            <img src="images/case-studies/web-translation.jpg" alt="Translation" />
+            <div class="overlay-title">Website Translation Platform</div>
+            <div class="card-content">
+                <h3>Website Translation Platform</h3>
+                <p>A global localization provider required a scalable, automated platform to translate enterprise websites across multiple languages.</p>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#webtranslateModal">Learn more →</a>
+            </div>
+        </div>
 
-                                </div>
+        <div class="service-card">
+            <img src="images/case-studies/wireless-cam.jpg" alt="Camera" />
+            <div class="overlay-title">Wireless Camera Management Platform</div>
+            <div class="card-content">
+                <h3>Wireless Camera Management Platform</h3>
+                <p>A security technology provider required a unified platform to monitor, control, and manage hundreds of wireless surveillance cameras.</p>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#wirelessModal">Learn more →</a>
+            </div>
+        </div>
 
-                                <!-- Right Arrow -->
-                                <button class="nav-btn right" onclick="slide(1)">›</button>
+        <div class="service-card">
+            <img src="images/case-studies/clinical-ai.webp" alt="Clinical AI" />
+            <div class="overlay-title">AI-Enabled Clinical Intelligence Platform</div>
+            <div class="card-content">
+                <h3>AI-Enabled Clinical Intelligence Platform</h3>
+                <p>A multi-specialty cardiac care network required an intelligent clinical software platform for predictive diagnostics and treatment decisions.</p>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#aiclinicalModal">Learn more →</a>
+            </div>
+        </div>
 
-                            </div>
+        <div class="service-card">
+            <img src="images/case-studies/ar-platform.png" alt="AR App" />
+            <div class="overlay-title">AR Mobile App for Public Transport</div>
+            <div class="card-content">
+                <h3>AR Mobile App for Public Transport Users</h3>
+                <p>A metropolitan transit authority sought to modernize commuter navigation with real-time AR guidance within complex transport hubs.</p>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#armobileModal">Learn more →</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="images/case-studies/building-tour.jpg" alt="Building Tour" />
+            <div class="overlay-title">Building Tour 3D Application</div>
+            <div class="card-content">
+                <h3>Building Tour Application (3D Web and Mobile App)</h3>
+                <p>An interactive digital platform allowing users to explore buildings remotely through immersive 3D visualization on web and mobile.</p>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#tourappModal">Learn more →</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="images/case-studies/ev-station.jpg" alt="EV Charging" />
+            <div class="overlay-title">EV Charging Solutions Application</div>
+            <div class="card-content">
+                <h3>EV Charging Solutions Application</h3>
+                <p>A unified platform connecting EV drivers, fleet operators, and charge station owners through a single intelligent IoT-enabled application.</p>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#evModal">Learn more →</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="images/case-studies/finance-risk.jpg" alt="Finance Risk" />
+            <div class="overlay-title">Financial Risk Management Software</div>
+            <div class="card-content">
+                <h3>Financial Risk Management Software Web App</h3>
+                <p>A secure, enterprise-grade platform capable of analyzing, monitoring, and mitigating operational and compliance risks in real time.</p>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#financriskModal">Learn more →</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="images/case-studies/fleet-app.jpg" alt="Fleet" />
+            <div class="overlay-title">Fleet Management App</div>
+            <div class="card-content">
+                <h3>Fleet Management App for a Logistics Solution</h3>
+                <p>A mid-sized U.S.-based logistics provider needed real-time fleet monitoring, automated reporting, and driver performance insights.</p>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#fleetModal">Learn more →</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="images/case-studies/flight-ticket.jpg" alt="Flight Booking" />
+            <div class="overlay-title">Flight Ticket Booking App</div>
+            <div class="card-content">
+                <h3>Flight Ticket Booking Web & Native Mobile App</h3>
+                <p>A travel technology company aimed to launch a unified digital platform for searching, comparing, and booking domestic and international flights.</p>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#flightbookModal">Learn more →</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="images/case-studies/global-payroll.jpg" alt="Payroll" />
+            <div class="overlay-title">Global Payroll Management Software</div>
+            <div class="card-content">
+                <h3>Global Payroll Management Software</h3>
+                <p>A multinational enterprise required centralized payroll across multiple countries, currencies, tax structures, and compliance regulations.</p>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#payrollModal">Learn more →</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="images/case-studies/online-learning.jpg" alt="LMS" />
+            <div class="overlay-title">Online Education Platform (LMS)</div>
+            <div class="card-content">
+                <h3>Online Education Platform Web Application (LMS)</h3>
+                <p>A Florida-based EdTech startup built a scalable platform for live classes, recorded sessions, assessments, and certification programs.</p>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#lmsModal">Learn more →</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="images/case-studies/kiosk.jpg" alt="Kiosk" />
+            <div class="overlay-title">Payment Kiosk for Global Parking</div>
+            <div class="card-content">
+                <h3>Payment Kiosk for a Global Parking Provider</h3>
+                <p>A leading international parking management provider sought a robust, self-service payment kiosk system to streamline on-site transactions.</p>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#kioskModal">Learn more →</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="images/case-studies/Ai-Similarity.png" alt="AI Similarity" />
+            <div class="overlay-title">AI-Powered Image Similarity App</div>
+            <div class="card-content">
+                <h3>AI-Powered Image Similarity Web App</h3>
+                <p>A digital media licensing company needed an AI solution to detect unauthorized image usage and track copyright infringements online at scale.</p>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#imageSimilarityModal">Learn more →</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="images/case-studies/multi-platform.png" alt="Hotel Booking" />
+            <div class="overlay-title">Multi-Platform Hotel Booking System</div>
+            <div class="card-content">
+                <h3>Multi-Platform Hotel Booking System</h3>
+                <p>A hospitality group across Asia, Europe, and the Middle East required a unified digital platform for hotel booking via web and mobile.</p>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#hotelBookingModal">Learn more →</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="images/case-studies/ev-station.jpg" alt="EV Charging 2" />
+            <div class="overlay-title">EV Charging Solutions Application</div>
+            <div class="card-content">
+                <h3>EV Charging Solutions Application</h3>
+                <p>Connecting EV drivers, fleet operators, and charge station owners through a single intelligent application for seamless charging operations.</p>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#evChargingModal">Learn more →</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="nav-btn right" id="nextBtn">›</button>
+
+</div>
 
                             <!-- CTA Box Body Start -->
-                            <div class="cta-box-body wow fadeInUp mt-5" data-wow-delay="0.6s">
+                            <div class="cta-box-body wow fadeInUp" data-wow-delay="0.6s">
                                 <a href="case-studies.html" class="btn-default btn-highlighted">View More</a>
                             </div> <!-- CTA Box Body End -->
 
@@ -1498,81 +1799,160 @@
     </div>
     <!-- Our Testimonials Section End -->
 
+
     <!-- Footer Start -->
     <footer class="main-footer">
         <div class="container">
             <canvas id="globeCanvas" class="tn-canvas"></canvas>
 
             <div class="tn-inner">
-            <div class="tn-hero">
-                <div>
-                    <h2>Let's start work <span class="tn-gradient">together!</span></h2>
-                    <p>Partner with us to create intelligent, impactful, and future-ready AI solutions together.</p>
-                </div>
-                <a href="contact.html" class="tn-btn">Let's Work Together</a>
-            </div>
-
-            <div class="tn-grid">
-                <!-- Brand + Social -->
-                <div>
-                    <div class="tn-brand-name">
-                        <img src="/images/logo.png" alt="TechNeeqs Logo" class="brand-logo">
+                <div class="tn-hero">
+                    <div>
+                        <h2>Let's start work <span class="tn-gradient">together!</span></h2>
+                        <p>Partner with us to create intelligent, impactful, and future-ready AI solutions together.</p>
                     </div>
-                    <p class="tn-brand-desc">Any one can write code that a computer can understand. Good programmers write code that humans can understand.</p>
-                    <p class="tn-col-title">Follow Us</p>
-                    <div class="tn-socials">
-                        <a href="#" class="tn-icon si-fb" title="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                        <a href="#" class="tn-icon si-li" title="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-                        <a href="#" class="tn-icon si-tw" title="X (Twitter)"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-                        <a href="#" class="tn-icon si-ig" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                    <a href="contact.html" class="tn-btn">Let's Work Together</a>
+                </div>
+
+                <div class="tn-grid">
+                    <!-- Brand + Social -->
+                    <div>
+                        <div class="tn-brand-name">
+                            <img src="/images/logo.png" alt="TechNeeqs Logo" class="brand-logo">
+                        </div>
+                        <p class="tn-brand-desc">Any one can write code that a computer can understand. Good programmers write code that humans can understand.</p>
+                        <p class="tn-col-title">Follow Us</p>
+                        <div class="tn-socials">
+                            <a href="#" class="tn-icon si-fb" title="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                            <a href="#" class="tn-icon si-li" title="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                            <a href="#" class="tn-icon si-tw" title="X (Twitter)"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                            <a href="#" class="tn-icon si-ig" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        </div>
+                    </div>
+
+                    <!-- Industries (2 cols) -->
+                    <div>
+                        <p class="tn-col-title" style="font-size:0.85rem;color:rgba(255,255,255,0.45);">Industries</p>
+                        <div class="tn-2col-links">
+                            <ul class="tn-links">
+                                <li><a href="industies.html">&#8250; Healthcare</a></li>
+                                <li><a href="industies.html">&#8250; Banking &amp; FinTech</a></li>
+                                <li><a href="industies.html">&#8250; eCommerce</a></li>
+                                <li><a href="industies.html">&#8250; Logistics</a></li>
+                                <li><a href="industies.html">&#8250; Education</a></li>
+                                <li><a href="industies.html">&#8250; Real Estate</a></li>
+                            </ul>
+                            <ul class="tn-links">
+                                <li><a href="industies.html">&#8250; Media &amp; Entertainment</a></li>
+                                <li><a href="industies.html">&#8250; Manufacturing</a></li>
+                                <li><a href="industies.html">&#8250; Travel &amp; Hospitality</a></li>
+                                <li><a href="industies.html">&#8250; Sports &amp; Fitness</a></li>
+                                <li><a href="industies.html">&#8250; Agriculture</a></li>
+                                <li><a href="industies.html">&#8250; Government</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links + Services (2 cols) -->
+                    <div>
+                        <p class="tn-col-title" style="font-size:0.85rem;color:rgba(255,255,255,0.45);">Quick Links &amp; Services</p>
+                        <div class="tn-2col-links">
+                            <ul class="tn-links">
+                                <li><a href="index.html">&#8250; Home</a></li>
+                                <li><a href="case-studies.html">&#8250; Case Studies</a></li>
+                                <li><a href="industies.html">&#8250; Industries</a></li>
+                                <li><a href="contact.html">&#8250; Contact Us</a></li>
+                                <li><a href="web-devlopment.html">&#8250; Web Development</a></li>
+                                <li><a href="mobile-application-ios.html">&#8250; iOS Development</a></li>
+                            </ul>
+                            <ul class="tn-links">
+                                <li><a href="mobile-application.html">&#8250; Android Development</a></li>
+                                <li><a href="ai.html">&#8250; Artificial Intelligence</a></li>
+                                <li><a href="ml.html">&#8250; Machine Learning</a></li>
+                                <li><a href="iot.html">&#8250; Internet of Things</a></li>
+                                <li><a href="3d.html">&#8250; 3D Development</a></li>
+                                <li><a href="ar.html">&#8250; Augmented Reality</a></li>
+                                <li><a href="vr.html">&#8250; Virtual Reality</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Contact Information Bottom Bar -->
+                <div class="tn-contact-bottom">
+                    <div class="tn-contact-bottom-grid">
+
+                        <!-- Phone -->
+                        <div class="tn-cb-col tn-cb-phone">
+                            <div class="tn-cb-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.38 2 2 0 0 1 3.57 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div class="tn-cb-content">
+                                <span class="tn-cb-label">Call Us</span>
+                                <a href="tel:15163403230" class="tn-cb-value">+1 516 340 3230</a>
+                            </div>
+                        </div>
+
+                        <div class="tn-cb-divider"></div>
+
+                        <!-- Email -->
+                        <div class="tn-cb-col tn-cb-email">
+                            <div class="tn-cb-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="tn-cb-content">
+                                <span class="tn-cb-label">Email Us</span>
+                                <a href="mailto:info@techneeqs.com" class="tn-cb-value">info@techneeqs.com</a>
+                            </div>
+                        </div>
+
+                        <div class="tn-cb-divider"></div>
+
+                        <!-- Addresses -->
+                        <div class="tn-cb-col tn-cb-address">
+                            <div class="tn-cb-addresses">
+                                <div class="tn-cb-addr-item">
+                                    <div class="tn-cb-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                    </div>
+                                    <p>TechNeeqs LLC, 539 W. Commerce St #279, Dallas, TX 75208</p>
+                                </div>
+                                <div class="tn-cb-addr-item">
+                                    <div class="tn-cb-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                    </div>
+                                    <p>H.No.202 2nd Floor RK Building, Hi-Tech City Hyderabad, India 500081</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <!-- Contact & Location -->
-                <div>
-                    <p class="tn-col-title" style="font-size:0.85rem;color:rgba(255,255,255,0.45);">Contact Information</p>
-                    <div class="tn-contact">
-                        <div class="tn-contact-row"><span style="color:#4ade80;font-size:13px;margin-top:2px;">&#9742;</span><a href="tel:15163403230">+1 516 340 3230</a></div>
-                        <div class="tn-contact-row"><span style="color:#4ade80;font-size:13px;margin-top:2px;">&#9993;</span><a href="mailto:info@techneeqs.com">info@techneeqs.com</a></div>
-                        <div class="tn-divider"></div>
-                        <div class="tn-contact-row"><span style="color:#3b82f6;font-size:13px;margin-top:3px;">&#128205;</span><p>TechNeeqs LLC, 539 W. Commerce St #279, <br> Dallas, TX 75208</p></div>
-                        <div class="tn-contact-row"><span style="color:#3b82f6;font-size:13px;margin-top:3px;">&#128205;</span><p>H.No.202 2nd Floor RK Building, Hi-Tech City Hyderabad, India 500081</p></div>
+                <div class="tn-bar">
+                    <p style="color:rgba(255,255,255,0.35);font-size:0.8rem;">Copyright &copy; 2026 TechNeeqs. All Rights Reserved.</p>
+                    <div class="footer-links">
+                      <a href="#">Terms and Conditions</a>
+                      <a href="#">Cancellation and Refund</a>
+                      <a href="#">Shipping and Delivery</a>
+                      <a href="#">Privacy Policy</a>
                     </div>
-                </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <p class="tn-col-title" style="font-size:0.85rem;color:rgba(255,255,255,0.45);">Quick Links</p>
-                    <ul class="tn-links">
-                        <li><a href="index.html">&#8250; Home</a></li>
-                        <li><a href="case-studies.html">&#8250; Case Studies</a></li>
-                        <li><a href="industies.html">&#8250; Industries</a></li>
-                        <li><a href="contact.html">&#8250; Contact Us</a></li>
-                    </ul>
-                </div>
-
-                <!-- Services -->
-                <div>
-                    <p class="tn-col-title" style="font-size:0.85rem;color:rgba(255,255,255,0.45);">Services</p>
-                    <ul class="tn-links">
-                        <li><a href="web-devlopment.html">&#8250; Web Development</a></li>
-                        <li><a href="mobile-application-ios.html">&#8250; iOS Development</a></li>
-                        <li><a href="mobile-application.html">&#8250; Android Development</a></li>
-                        <li><a href="ai.html">&#8250; Artificial Intelligence</a></li>
-                        <li><a href="ml.html">&#8250; Machine Learning</a></li>
-                        <li><a href="iot.html">&#8250; Internet of Things</a></li>
-                        <li><a href="3d.html">&#8250; 3D Development</a></li>
-                        <li><a href="ar.html">&#8250; Augmented Reality</a></li>
-                        <li><a href="vr.html">&#8250; Virtual Reality</a></li>
-                    </ul>
+                    <p style="color:rgba(255,255,255,0.25);font-size:0.75rem;">Built with passion for technology &amp; innovation.</p>
                 </div>
             </div>
-
-            <div class="tn-bar">
-                <p style="color:rgba(255,255,255,0.35);font-size:0.8rem;">Copyright &copy; 2026 TechNeeqs. All Rights Reserved.</p>
-                <p style="color:rgba(255,255,255,0.25);font-size:0.75rem;">Built with passion for technology &amp; innovation.</p>
-            </div>
-        <div class="container">
+        </div>
     </footer>
     <!-- Footer End -->
 
@@ -1631,6 +2011,94 @@
         }
 
         updateActive();
+    </script>
+
+    <script>
+        (function () {
+            const track = document.getElementById('carouselTrack');
+            const carousel = track.closest('.services-carousel');
+            const CARD_WIDTH = 220;
+            const GAP = 16;
+            const STEP = CARD_WIDTH + GAP;
+            const SPEED = 0.8; /* px per frame for auto-scroll */
+
+            let currentOffset = 0;
+            let isAnimating = false;
+            let autoScrollId = null;
+            let isPaused = false;
+
+            /* Clone cards for infinite loop */
+            function setupInfiniteLoop() {
+                const origCards = Array.from(track.children);
+                origCards.forEach(card => {
+                    const clone = card.cloneNode(true);
+                    clone.classList.add('clone');
+                    track.appendChild(clone);
+                });
+            }
+
+            setupInfiniteLoop();
+
+            const totalOriginal = track.querySelectorAll('.service-card:not(.clone)').length;
+            const loopWidth = totalOriginal * STEP;
+
+            /* Manual navigation */
+            function moveBy(dir) {
+                if (isAnimating) return;
+                isAnimating = true;
+                currentOffset += dir * STEP;
+
+                track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                track.style.transform = `translateX(${-currentOffset}px)`;
+
+                setTimeout(() => {
+                    /* Silent reset for infinite loop */
+                    if (currentOffset >= loopWidth) {
+                        currentOffset -= loopWidth;
+                        track.style.transition = 'none';
+                        track.style.transform = `translateX(${-currentOffset}px)`;
+                    }
+                    if (currentOffset < 0) {
+                        currentOffset += loopWidth;
+                        track.style.transition = 'none';
+                        track.style.transform = `translateX(${-currentOffset}px)`;
+                    }
+                    isAnimating = false;
+                }, 520);
+            }
+
+            document.getElementById('prevBtn').addEventListener('click', () => moveBy(-1));
+            document.getElementById('nextBtn').addEventListener('click', () => moveBy(1));
+
+            /* Auto-scroll (smooth continuous) */
+            let autoOffset = 0;
+
+            function autoScroll() {
+                if (isPaused) {
+                    autoScrollId = requestAnimationFrame(autoScroll);
+                    return;
+                }
+                autoOffset += SPEED;
+                if (autoOffset >= loopWidth) autoOffset -= loopWidth;
+
+                /* Only drive auto if user isn't manually navigating */
+                if (!isAnimating) {
+                    currentOffset = autoOffset;
+                    track.style.transition = 'none';
+                    track.style.transform = `translateX(${-autoOffset}px)`;
+                }
+                autoScrollId = requestAnimationFrame(autoScroll);
+            }
+
+            /* Pause on hover */
+            carousel.addEventListener('mouseenter', () => { isPaused = true; });
+            carousel.addEventListener('mouseleave', () => {
+                isPaused = false;
+                autoOffset = currentOffset; /* sync so no jump */
+            });
+
+            autoScrollId = requestAnimationFrame(autoScroll);
+        })();
     </script>
 
 </body>
