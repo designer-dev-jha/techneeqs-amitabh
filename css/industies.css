@@ -550,7 +550,7 @@ figure { margin: 0; }
   font-size: 0.67rem;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--accent-color);
+  color: #ffffff;
   background: rgba(169,62,23,0.08);
   border: 1px solid rgba(169,62,23,0.2);
   padding: 0.22rem 0.7rem;
